@@ -23,169 +23,8 @@
 <meta name="twitter:title" content="DevCore - Learn Programming">
 <meta name="twitter:description" content="تعلم البرمجة وتطوير الويب وصناعة الألعاب من الصفر إلى الاحتراف">
 <meta name="twitter:image" content="https://dev-core.site/cover.jpg">
-</head>
 
-<body>
-    <header id="header">
-        <div class="header-content">
-            <h1>Welcome to DEV-CORE</h1>
-            <p class="tagline">Where Low Costs Meet High Quality</p>
-            <p class="subtitle">Start your journey to become a professional developer today</p>
-        </div>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="roadmap.html">Roadmap</a></li>
-                <li id="navLogin"><a href="login.html">Login</a></li>
-                <li id="navSignup"><a href="signup.html">Sign Up</a></li>
-                <li id="navDashboard" style="display: none;"><a href="dashboard.html">Dashboard</a></li>
-                <li id="navAdmin" style="display: none;"><a href="admin_panel.html">Admin Panel</a></li>
-                <li id="navLogout" style="display: none;"><a href="#" id="logoutLink">Logout</a></li>
-            </ul>
-        </nav>
-
-        <div class="cta-section">
-            <a href="signup.html" class="btn-primary-large">Get Started Free</a>
-            <a href="courses.html" class="btn-secondary-large">Browse Courses</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Transform Your Career with Professional Programming Courses</h2>
-            <p>Learn from industry experts and build real-world projects</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" id="totalCourses">6+</span>
-                    <span class="stat-label">Courses</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="totalStudents">1000+</span>
-                    <span class="stat-label">Students</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Support</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section class="courses-section" id="courses">
-        <div class="container">
-            <h2 class="section-title">Our Courses</h2>
-            <p class="section-subtitle">Choose from our comprehensive range of programming and technology courses</p>
-
-            <div class="courses-grid" id="coursesGrid">
-                <!-- Courses will be loaded dynamically -->
-                <div class="loading">Loading courses...</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <h2 class="section-title">Why Choose DEV-CORE?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Affordable Pricing</h3>
-                    <p>High-quality courses at prices that won't break the bank</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3>Expert Instructors</h3>
-                    <p>Learn from industry professionals with real-world experience</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Comprehensive Content</h3>
-                    <p>From beginner to advanced, we cover everything you need</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Certificates</h3>
-                    <p>Get certified upon course completion</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⏰</div>
-                    <h3>Lifetime Access</h3>
-                    <p>Learn at your own pace, access forever</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Community Support</h3>
-                    <p>Join our community and get help when you need it</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle">Have questions? We'd love to hear from you!</p>
-
-            <form id="contactForm" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="contactName">Name</label>
-                        <input type="text" id="contactName" name="name" placeholder="Your name" required maxlength="50">
-                    </div>
-                    <div class="form-group">
-                        <label for="contactEmail">Email</label>
-                        <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required maxlength="50">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="contactMessage">Message</label>
-                    <textarea id="contactMessage" name="message" placeholder="Your message..." rows="5" required maxlength="500"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Send Message</button>
-                <div class="form-message" id="contactFormMessage"></div>
-            </form>
-        </div>
-    </section>
-
-    <footer id="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>DEV-CORE</h3>
-                <p>Empowering developers through quality education</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <!-- <li><a href="inedx.html">Home</a></li> -->
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="roadmap.html">Roadmap</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a target="_blank" href="mailto:devcore.communicate@gmail.com">📧 Email</a></li>
-                    <li><a target="_blank" href="tel:+966359797419">📞 Phone</a></li>
-                    <li><a target="_blank" href="https://www.instagram.com/dev.core.egy">📷 Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DEV-CORE. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="/dev-core/forntemd/js/auth.js"></script>
-    <script src="/dev-core/forntemd/js/index.js"></script>
- 
-    <style>
+<style>
         /* ===== GLOBAL STYLE ===== */
                 :root {
             /* Dark Theme (Default) */
@@ -744,6 +583,167 @@
             }
         }
     </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-content">
+            <h1>Welcome to DEV-CORE</h1>
+            <p class="tagline">Where Low Costs Meet High Quality</p>
+            <p class="subtitle">Start your journey to become a professional developer today</p>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li id="navLogin"><a href="login.html">Login</a></li>
+                <li id="navSignup"><a href="signup.html">Sign Up</a></li>
+                <li id="navDashboard" style="display: none;"><a href="dashboard.html">Dashboard</a></li>
+                <li id="navAdmin" style="display: none;"><a href="admin_panel.html">Admin Panel</a></li>
+                <li id="navLogout" style="display: none;"><a href="#" id="logoutLink">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="cta-section">
+            <a href="signup.html" class="btn-primary-large">Get Started Free</a>
+            <a href="courses.html" class="btn-secondary-large">Browse Courses</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Transform Your Career with Professional Programming Courses</h2>
+            <p>Learn from industry experts and build real-world projects</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalCourses">6+</span>
+                    <span class="stat-label">Courses</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalStudents">1000+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <h2 class="section-title">Our Courses</h2>
+            <p class="section-subtitle">Choose from our comprehensive range of programming and technology courses</p>
+
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Courses will be loaded dynamically -->
+                <div class="loading">Loading courses...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose DEV-CORE?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Affordable Pricing</h3>
+                    <p>High-quality courses at prices that won't break the bank</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from industry professionals with real-world experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Comprehensive Content</h3>
+                    <p>From beginner to advanced, we cover everything you need</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Certificates</h3>
+                    <p>Get certified upon course completion</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Lifetime Access</h3>
+                    <p>Learn at your own pace, access forever</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Community Support</h3>
+                    <p>Join our community and get help when you need it</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you!</p>
+
+            <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactName">Name</label>
+                        <input type="text" id="contactName" name="name" placeholder="Your name" required maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" name="message" placeholder="Your message..." rows="5" required maxlength="500"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+                <div class="form-message" id="contactFormMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DEV-CORE</h3>
+                <p>Empowering developers through quality education</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <!-- <li><a href="inedx.html">Home</a></li> -->
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a target="_blank" href="mailto:devcore.communicate@gmail.com">📧 Email</a></li>
+                    <li><a target="_blank" href="tel:+966359797419">📞 Phone</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/dev.core.egy">📷 Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DEV-CORE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/dev-core/forntemd/js/auth.js"></script>
+    <script src="/dev-core/forntemd/js/index.js"></script>
 <script> 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
