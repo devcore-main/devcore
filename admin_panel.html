@@ -6,391 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/dev-core/forntemd/css/style.css">
     <title>Admin Panel - DEV-CORE</title>
-    <script src = "admin.js"></script>
-</head>
-
-<body>
-    <header id="header">
-        <h1>Admin Panel</h1>
-        <p>Manage your platform and users</p>
-        <ul>
-            <li><a href='index.html'>Home</a></li>
-            <li><a href='dashboard.html'>Dashboard</a></li>
-            <li><a href='admin_panel.html'>Admin Panel</a></li>
-        </ul>
-    </header>
-
-    <div class="admin-container">
-        <!-- Admin Stats Section -->
-        <section class="admin-stats-section">
-            <div class="stat-card">
-                <div class="stat-icon">👥</div>
-                <div class="stat-info">
-                    <h3>Total Users</h3>
-                    <p class="stat-number">0</p>
-                    <span class="stat-change positive">+12% this month</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">📚</div>
-                <div class="stat-info">
-                    <h3>Total Courses</h3>
-                    <p class="stat-number">0</p>
-                    <span class="stat-change positive">+3 new</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">💰</div>
-                <div class="stat-info">
-                    <h3>Revenue</h3>
-                    <p class="stat-number">0.00LE</p>
-                    <span class="stat-change positive">+8% this month</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">✅</div>
-                <div class="stat-info">
-                    <h3>Active Enrollments</h3>
-                    <p class="stat-number">892</p>
-                    <span class="stat-change positive">+156 active</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Admin Grid -->
-        <div class="admin-grid">
-            <!-- User Management Section -->
-            <section class="admin-section">
-                <div class="section-header">
-                    <h2>User Management</h2>
-                    <button class="btn-add">+ Add User</button>
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search users..." id="userSearch">
-                    <select id="userFilter">
-                        <option value="all">All Users</option>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                        <option value="admin">Admins</option>
-                    </select>
-                </div>
-                <div class="table-container">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#1001</td>
-                                <td>Ahmed Mohamed</td>
-                                <td>ahmed@example.com</td>
-                                <td><span class="badge user">User</span></td>
-                                <td><span class="status active">Active</span></td>
-                                <td>
-                                    <button class="btn-icon" title="Edit">✏️</button>
-                                    <button class="btn-icon" title="Delete">🗑️</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1002</td>
-                                <td>Sarah Ali</td>
-                                <td>sarah@example.com</td>
-                                <td><span class="badge user">User</span></td>
-                                <td><span class="status active">Active</span></td>
-                                <td>
-                                    <button class="btn-icon" title="Edit">✏️</button>
-                                    <button class="btn-icon" title="Delete">🗑️</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1003</td>
-                                <td>Mohamed Hassan</td>
-                                <td>mohamed@example.com</td>
-                                <td><span class="badge admin">Admin</span></td>
-                                <td><span class="status active">Active</span></td>
-                                <td>
-                                    <button class="btn-icon" title="Edit">✏️</button>
-                                    <button class="btn-icon" title="Delete">🗑️</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1004</td>
-                                <td>Fatima Ibrahim</td>
-                                <td>fatima@example.com</td>
-                                <td><span class="badge user">User</span></td>
-                                <td><span class="status inactive">Inactive</span></td>
-                                <td>
-                                    <button class="btn-icon" title="Edit">✏️</button>
-                                    <button class="btn-icon" title="Delete">🗑️</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="pagination">
-                    <button class="page-btn">Previous</button>
-                    <span class="page-info">Page 1 of 10</span>
-                    <button class="page-btn">Next</button>
-                </div>
-            </section>
-
-            <!-- Course Management Section -->
-            <section class="admin-section">
-                <div class="section-header">
-                    <h2>Course Management</h2>
-                    <button class="btn-add" onclick="showAddCourseModal()">+ Add Course</button>
-                </div>
-                <div class="course-admin-list" id="coursesList">
-                    <!-- Courses will be loaded dynamically -->
-                    <div class="loading">Loading courses...</div>
-                </div>
-            </section>
-
-            <!-- Course Materials Management Section -->
-            <section class="admin-section">
-                <div class="section-header">
-                    <h2>Course Materials Management</h2>
-                </div>
-                <div class="materials-controls">
-                    <select id="materialsCourseSelect" class="materials-course-select">
-                        <option value="">Select a course...</option>
-                    </select>
-                    <button class="btn-add" onclick="showAddMaterialModal()" id="addMaterialBtn" disabled>+ Add Material</button>
-                </div>
-                <div class="materials-list-container" id="materialsList">
-                    <p style="text-align: center; opacity: 0.7; padding: 40px;">Select a course to manage its materials</p>
-                </div>
-            </section>
-
-            <!-- Analytics Section -->
-            <section class="admin-section">
-                <h2>Analytics Overview</h2>
-                <div class="analytics-grid">
-                    <div class="analytics-item">
-                        <h4>Enrollment Trends</h4>
-                        <div class="chart-placeholder">
-                            <p>📈 Chart visualization</p>
-                            <p class="chart-note">Last 30 days: +15% growth</p>
-                        </div>
-                    </div>
-                    <div class="analytics-item">
-                        <h4>Revenue Breakdown</h4>
-                        <div class="revenue-list">
-                            <div class="revenue-item">
-                                <span>Front-End</span>
-                                <span class="revenue-amount">$12,450</span>
-                            </div>
-                            <div class="revenue-item">
-                                <span>Backend</span>
-                                <span class="revenue-amount">$15,200</span>
-                            </div>
-                            <div class="revenue-item">
-                                <span>Cybersecurity</span>
-                                <span class="revenue-amount">$9,800</span>
-                            </div>
-                            <div class="revenue-item">
-                                <span>AI</span>
-                                <span class="revenue-amount">$8,228</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Quick Actions Section -->
-            <section class="admin-section">
-                <h2>Quick Actions</h2>
-                <div class="admin-actions-grid">
-                    <button class="admin-action-card">
-                        <div class="action-icon">📧</div>
-                        <h3>Send Email</h3>
-                        <p>Send bulk emails</p>
-                    </button>
-                    <button class="admin-action-card">
-                        <div class="action-icon">📊</div>
-                        <h3>Generate Report</h3>
-                        <p>Export analytics</p>
-                    </button>
-                    <button class="admin-action-card">
-                        <div class="action-icon">⚙️</div>
-                        <h3>Settings</h3>
-                        <p>Platform settings</p>
-                    </button>
-                    <button class="admin-action-card">
-                        <div class="action-icon">🔒</div>
-                        <h3>Security</h3>
-                        <p>Manage security</p>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Recent Activity Section -->
-            <section class="admin-section">
-                <h2>Recent Activity</h2>
-                <div class="admin-activity-list">
-                    <div class="admin-activity-item">
-                        <div class="activity-icon">👤</div>
-                        <div class="activity-content">
-                            <p><strong>New user registered:</strong> Ahmed Mohamed</p>
-                            <span class="activity-time">2 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="admin-activity-item">
-                        <div class="activity-icon">📚</div>
-                        <div class="activity-content">
-                            <p><strong>Course created:</strong> Mobile App Development</p>
-                            <span class="activity-time">5 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="admin-activity-item">
-                        <div class="activity-icon">💰</div>
-                        <div class="activity-content">
-                            <p><strong>Payment received:</strong> $500 from Sarah Ali</p>
-                            <span class="activity-time">1 day ago</span>
-                        </div>
-                    </div>
-                    <div class="admin-activity-item">
-                        <div class="activity-icon">✅</div>
-                        <div class="activity-content">
-                            <p><strong>Certificate issued:</strong> Cybersecurity - Mohamed Hassan</p>
-                            <span class="activity-time">2 days ago</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- System Settings Section -->
-            <section class="admin-section">
-                <h2>System Settings</h2>
-                <div class="settings-list">
-                    <div class="setting-item">
-                        <div class="setting-info">
-                            <h4>Maintenance Mode</h4>
-                            <p>Enable maintenance mode for all users</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <div class="setting-info">
-                            <h4>Email Notifications</h4>
-                            <p>Send email notifications to users</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <div class="setting-info">
-                            <h4>Auto Backup</h4>
-                            <p>Automatically backup database daily</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <div class="setting-info">
-                            <h4>Two-Factor Authentication</h4>
-                            <p>Require 2FA for admin accounts</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <footer id="footer">
-        <ul>
-            <li><a target="_blank" href="mailto:devcore.communicate@gmail.com">email</a></li>
-            <li><a target="_blank" href="tel:+966359797419">telphone</a></li>
-            <li><a target="_blank" href="https://www.instagram.com/dev.core.egy">insta</a></li>
-        </ul>
-    </footer>
-
-    <!-- Add Course Modal -->
-    <div id="addCourseModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <span class="close-admin-modal" onclick="closeAddCourseModal()">&times;</span>
-            <h2>Add New Course</h2>
-            <form id="addCourseForm">
-                <div class="form-group">
-                    <label>Title *</label>
-                    <input type="text" id="courseTitle" required>
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea id="courseDescription" rows="4"></textarea>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Price (L.E) *</label>
-                        <input type="number" id="coursePrice" required min="0" step="0.01">
-                    </div>
-                    <div class="form-group">
-                        <label>Category</label>
-                        <select id="courseCategory">
-                            <option value="Web Development">Web Development</option>
-                            <option value="Security">Security</option>
-                            <option value="Artificial Intelligence">Artificial Intelligence</option>
-                            <option value="Desktop">Desktop</option>
-                            <option value="Mobile">Mobile</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn-submit">Create Course</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Add Material Modal -->
-    <div id="addMaterialModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <span class="close-admin-modal" onclick="closeAddMaterialModal()">&times;</span>
-            <h2>Add Course Material</h2>
-            <form id="addMaterialForm">
-                <div class="form-group">
-                    <label>Title *</label>
-                    <input type="text" id="materialTitle" required>
-                </div>
-                <div class="form-group">
-                    <label>Content</label>
-                    <textarea id="materialContent" rows="6" placeholder="Enter material content, notes, or description..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Material Type</label>
-                    <select id="materialType">
-                        <option value="lesson">Lesson</option>
-                        <option value="video">Video</option>
-                        <option value="assignment">Assignment</option>
-                        <option value="quiz">Quiz</option>
-                        <option value="resource">Resource</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Add Material</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="/dev-core/forntemd/js/auth.js"></script>
-    <script src="/dev-core/forntemd/js/admin.js"></script>
-
-    <style>
+    <script defer src = "admin.js"></script>
+<style>
         :root {
             /* Dark Theme (Default) */
             --primary-color: #8f44ff;
@@ -1201,6 +818,388 @@
             }
         }
     </style>
+</head>
+
+<body>
+    <header id="header">
+        <h1>Admin Panel</h1>
+        <p>Manage your platform and users</p>
+        <ul>
+            <li><a href='index.html'>Home</a></li>
+            <li><a href='dashboard.html'>Dashboard</a></li>
+            <li><a href='admin_panel.html'>Admin Panel</a></li>
+        </ul>
+    </header>
+
+    <div class="admin-container">
+        <!-- Admin Stats Section -->
+        <section class="admin-stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3>Total Users</h3>
+                    <p class="stat-number">0</p>
+                    <span class="stat-change positive">+12% this month</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div class="stat-info">
+                    <h3>Total Courses</h3>
+                    <p class="stat-number">0</p>
+                    <span class="stat-change positive">+3 new</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3>Revenue</h3>
+                    <p class="stat-number">0.00LE</p>
+                    <span class="stat-change positive">+8% this month</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3>Active Enrollments</h3>
+                    <p class="stat-number">892</p>
+                    <span class="stat-change positive">+156 active</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Admin Grid -->
+        <div class="admin-grid">
+            <!-- User Management Section -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2>User Management</h2>
+                    <button class="btn-add">+ Add User</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search users..." id="userSearch">
+                    <select id="userFilter">
+                        <option value="all">All Users</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="admin">Admins</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1001</td>
+                                <td>Ahmed Mohamed</td>
+                                <td>ahmed@example.com</td>
+                                <td><span class="badge user">User</span></td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1002</td>
+                                <td>Sarah Ali</td>
+                                <td>sarah@example.com</td>
+                                <td><span class="badge user">User</span></td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1003</td>
+                                <td>Mohamed Hassan</td>
+                                <td>mohamed@example.com</td>
+                                <td><span class="badge admin">Admin</span></td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1004</td>
+                                <td>Fatima Ibrahim</td>
+                                <td>fatima@example.com</td>
+                                <td><span class="badge user">User</span></td>
+                                <td><span class="status inactive">Inactive</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <button class="page-btn">Previous</button>
+                    <span class="page-info">Page 1 of 10</span>
+                    <button class="page-btn">Next</button>
+                </div>
+            </section>
+
+            <!-- Course Management Section -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2>Course Management</h2>
+                    <button class="btn-add" onclick="showAddCourseModal()">+ Add Course</button>
+                </div>
+                <div class="course-admin-list" id="coursesList">
+                    <!-- Courses will be loaded dynamically -->
+                    <div class="loading">Loading courses...</div>
+                </div>
+            </section>
+
+            <!-- Course Materials Management Section -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2>Course Materials Management</h2>
+                </div>
+                <div class="materials-controls">
+                    <select id="materialsCourseSelect" class="materials-course-select">
+                        <option value="">Select a course...</option>
+                    </select>
+                    <button class="btn-add" onclick="showAddMaterialModal()" id="addMaterialBtn" disabled>+ Add Material</button>
+                </div>
+                <div class="materials-list-container" id="materialsList">
+                    <p style="text-align: center; opacity: 0.7; padding: 40px;">Select a course to manage its materials</p>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section class="admin-section">
+                <h2>Analytics Overview</h2>
+                <div class="analytics-grid">
+                    <div class="analytics-item">
+                        <h4>Enrollment Trends</h4>
+                        <div class="chart-placeholder">
+                            <p>📈 Chart visualization</p>
+                            <p class="chart-note">Last 30 days: +15% growth</p>
+                        </div>
+                    </div>
+                    <div class="analytics-item">
+                        <h4>Revenue Breakdown</h4>
+                        <div class="revenue-list">
+                            <div class="revenue-item">
+                                <span>Front-End</span>
+                                <span class="revenue-amount">$12,450</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span>Backend</span>
+                                <span class="revenue-amount">$15,200</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span>Cybersecurity</span>
+                                <span class="revenue-amount">$9,800</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span>AI</span>
+                                <span class="revenue-amount">$8,228</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="admin-section">
+                <h2>Quick Actions</h2>
+                <div class="admin-actions-grid">
+                    <button class="admin-action-card">
+                        <div class="action-icon">📧</div>
+                        <h3>Send Email</h3>
+                        <p>Send bulk emails</p>
+                    </button>
+                    <button class="admin-action-card">
+                        <div class="action-icon">📊</div>
+                        <h3>Generate Report</h3>
+                        <p>Export analytics</p>
+                    </button>
+                    <button class="admin-action-card">
+                        <div class="action-icon">⚙️</div>
+                        <h3>Settings</h3>
+                        <p>Platform settings</p>
+                    </button>
+                    <button class="admin-action-card">
+                        <div class="action-icon">🔒</div>
+                        <h3>Security</h3>
+                        <p>Manage security</p>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recent Activity Section -->
+            <section class="admin-section">
+                <h2>Recent Activity</h2>
+                <div class="admin-activity-list">
+                    <div class="admin-activity-item">
+                        <div class="activity-icon">👤</div>
+                        <div class="activity-content">
+                            <p><strong>New user registered:</strong> Ahmed Mohamed</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="admin-activity-item">
+                        <div class="activity-icon">📚</div>
+                        <div class="activity-content">
+                            <p><strong>Course created:</strong> Mobile App Development</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="admin-activity-item">
+                        <div class="activity-icon">💰</div>
+                        <div class="activity-content">
+                            <p><strong>Payment received:</strong> $500 from Sarah Ali</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="admin-activity-item">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-content">
+                            <p><strong>Certificate issued:</strong> Cybersecurity - Mohamed Hassan</p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Settings Section -->
+            <section class="admin-section">
+                <h2>System Settings</h2>
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Maintenance Mode</h4>
+                            <p>Enable maintenance mode for all users</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Email Notifications</h4>
+                            <p>Send email notifications to users</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Auto Backup</h4>
+                            <p>Automatically backup database daily</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Two-Factor Authentication</h4>
+                            <p>Require 2FA for admin accounts</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <ul>
+            <li><a target="_blank" href="mailto:devcore.communicate@gmail.com">email</a></li>
+            <li><a target="_blank" href="tel:+966359797419">telphone</a></li>
+            <li><a target="_blank" href="https://www.instagram.com/dev.core.egy">insta</a></li>
+        </ul>
+    </footer>
+
+    <!-- Add Course Modal -->
+    <div id="addCourseModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close-admin-modal" onclick="closeAddCourseModal()">&times;</span>
+            <h2>Add New Course</h2>
+            <form id="addCourseForm">
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="courseTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="courseDescription" rows="4"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price (L.E) *</label>
+                        <input type="number" id="coursePrice" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="courseCategory">
+                            <option value="Web Development">Web Development</option>
+                            <option value="Security">Security</option>
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
+                            <option value="Desktop">Desktop</option>
+                            <option value="Mobile">Mobile</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Create Course</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Material Modal -->
+    <div id="addMaterialModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close-admin-modal" onclick="closeAddMaterialModal()">&times;</span>
+            <h2>Add Course Material</h2>
+            <form id="addMaterialForm">
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="materialTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea id="materialContent" rows="6" placeholder="Enter material content, notes, or description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Material Type</label>
+                    <select id="materialType">
+                        <option value="lesson">Lesson</option>
+                        <option value="video">Video</option>
+                        <option value="assignment">Assignment</option>
+                        <option value="quiz">Quiz</option>
+                        <option value="resource">Resource</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Add Material</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+<script src="../js/auth.js"></script>
 <script> 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
