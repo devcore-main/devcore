@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>باقات شبكاوي | عروض الفراعنة</title>
+  <style>
+    :root {
+      --gold: #FFD700;
+      --gold-soft: #FDB931;
+      --lapis: #0D3B66;
+      --turquoise: #40E0D0;
+      --bg: #0A0F1A;
+      --text: #F8F9FA;
+      --text-muted: #CBD5E1;
+      --surface-glass: rgba(13, 59, 102, 0.6);
+      --radius-lg: 24px;
+      --radius-md: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap');
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: var(--bg);
+      background-image: url('background.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--text);
+      margin: 0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--surface-glass);
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .card h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--turquoise);
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 3rem;
+      text-align: right;
+    }
+
+    .features li {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    .features li::before {
+      content: '◈';
+      color: var(--gold);
+      margin-left: 10px;
+    }
+
+    .cta-button {
+      display: block;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: var(--lapis);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--turquoise);
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>باقات الحماية الملكية</h1>
+    <div class="pricing-grid">
+      <div class="card">
+        <h2>باقة الفلاح</h2>
+        <div class="price">مجانًا</div>
+        <ul class="features">
+          <li>حماية جهاز واحد</li>
+          <li>مراقبة أساسية للشبكة</li>
+          <li>تنبيهات عبر البريد</li>
+        </ul>
+        <a href="#" class="cta-button">ابدأ الآن</a>
+      </div>
+      <div class="card" style="border-width: 2px; border-color: var(--gold);">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gold);"></div>
+        <h2>باقة الملك</h2>
+        <div class="price">99 ج.م / شهر</div>
+        <ul class="features">
+          <li>حماية 5 أجهزة</li>
+          <li>منع اختراقات متقدم</li>
+          <li>تنبيهات SMS فورية</li>
+          <li>دعم فني ملكي 24/7</li>
+        </ul>
+        <a href="#" class="cta-button">اشترك الآن</a>
+      </div>
+      <div class="card">
+        <h2>باقة الإمبراطور</h2>
+        <div class="price">250 ج.م / شهر</div>
+        <ul class="features">
+          <li>أجهزة غير محدودة</li>
+          <li>حصن رقمي متكامل</li>
+          <li>أولوية في الدعم الفني</li>
+          <li>تقارير أمنية أسبوعية</li>
+        </ul>
+        <a href="#" class="cta-button">اشترك الآن</a>
+      </div>
+    </div>
+    <a href="index.html" class="back-home">العودة للرئيسية</a>
+  </div>
+</body>
+
+</html>

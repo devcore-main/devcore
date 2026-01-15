@@ -1,270 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - DEV-CORE</title>
-    <link rel="stylesheet" href="/dev-core/forntemd/css/style.css">
-    <link rel="stylesheet" href="signup.css">
+    <title>إنشاء حساب | شبكاوي</title>
+    <style>
+        :root {
+            --gold: #FFD700;
+            --lapis: #0D3B66;
+            --bg: #0A0F1A;
+            --text: #F8F9FA;
+            --surface-glass: rgba(13, 59, 102, 0.7);
+            --radius-lg: 24px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap');
+
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-image: url('background.png');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .signup-card {
+            background: var(--surface-glass);
+            padding: 4rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(20px);
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--gold);
+            margin-bottom: 2.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 1.1rem;
+            margin-bottom: 1.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gold);
+            color: var(--lapis);
+            border: none;
+            border-radius: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .login-link {
+            margin-top: 2rem;
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            color: var(--gold);
+        }
+    </style>
 </head>
 
 <body>
-
-    <header id="header">
-        <h1>Create Your Account</h1>
-        <p>Join DEV-CORE and start your learning journey</p>
-        <ul>
-            <li><a href='index.html'>Home</a></li>
-            <li><a href='login.html'>Login</a></li>
-            <li><a href='signup.html'>Sign Up</a></li>
-        </ul>
-    </header>
-
-    <div class="auth-container">
-        <div class="auth-card">
-            <h2>Sign Up</h2>
-            <p class="auth-subtitle">Create a new account to get started</p>
-
-           <form id="signupForm" method="POST" action="https://dev-core.site/api/Auth/adduser">
-                <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required autocomplete="name">
-                    <span class="error-message" id="fullnameError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="@username" required autocomplete="username">
-                    <span class="error-message" id="usernameError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@example.com" required autocomplete="username">
-                    <span class="error-message" id="emailError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+20112233444" required autocomplete="tel">
-                    <span class="error-message" id="phoneError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="new-password">
-                    <span class="error-message" id="passwordError"></span>
-                    <div class="password-strength" id="passwordStrength"><div class="password-strength-bar"></div></div>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required autocomplete="new-password">
-                    <span class="error-message" id="confirmPasswordError"></span>
-                </div>
-
-                <!-- ===== reCAPTCHA ===== -->
-                <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="6LepaiYsAAAAANXnV8jxioJLaWFNeVwgO5M9ciot"></div>
-                    <span class="error-message" id="recaptchaError"></span>
-                </div>
-
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="termsCheckbox" name="terms" required>
-                    <label for="termsCheckbox">I agree to the <a href="#" id="termsLink">Terms and Conditions</a></label>
-                    <span class="error-message" id="termsError"></span>
-                </div>
-
-                <button type="submit" class="btn-submit" id="submitBtn">
-                    <span class="btn-text">Create Account</span>
-                    <span class="btn-loader" style="display:none;">⏳</span>
-                </button>
-
-                <div class="form-message" id="formMessage"></div>
-            </form>
-
-            <div class="auth-footer">
-                <p>Already have an account? <a href="login.html">Login here</a></p>
-            </div>
-        </div>
+    <div class="signup-card">
+        <h1>كن جزءاً من الحماية</h1>
+        <form>
+            <input type="text" placeholder="الاسم الملكي الكامل">
+            <input type="email" placeholder="البريد الإلكتروني">
+            <input type="password" placeholder="كلمة المرور">
+            <input type="password" placeholder="تأكيد كلمة المرور">
+            <button type="submit">بدء الرحلة</button>
+        </form>
+        <a href="login.html" class="login-link">لديك حساب بالفعل؟ سجل دخولك</a>
+        <a href="index.html" class="login-link" style="margin-top: 10px; font-size: 0.9rem;">العودة للرئيسية</a>
     </div>
-
-    <!-- Terms Modal -->
-    <div class="modal" id="termsModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Terms and Conditions</h3>
-
-            <p><strong>1. Using Our Services</strong><br>
-            Use our website responsibly and legally. Please don't:<br>
-            - Break any laws.<br>
-            - Share harmful or offensive content.<br>
-            - Try to access other user's accounts or our systems without permission.</p>
-
-            <p><strong>2. Your Account</strong><br>
-            If you create an account, keep your login details safe. You're responsible for everything that happens under your account. Let us know if it's compromised.</p>
-
-            <p><strong>3. Content and Ownership</strong><br>
-            All content on our site (texts, images, logos) belong to [DEVCORE]. Don't copy or use it without our permission.</p>
-
-            <p><strong>4. Changes and Updates</strong><br>
-            We may update these terms sometimes. Keep using our site means you accept the updated terms.</p>
-
-            <p><strong>5. Limitation of Liability</strong><br>
-            We work hard to make our site safe and reliable, but we aren't responsible for any damages from using it.</p>
-
-            <p><strong>6. Ending Access</strong><br>
-            We may suspend or remove your access if you break these rules.</p>
-        </div>
-    </div>
-
-    <footer id="footer">
-        <ul>
-            <li><a target="_blank" href="mailto:devcore.communicate@gmail.com">Email</a></li>
-            <li><a target="_blank" href="tel:+966359797419">Telephone</a></li>
-            <li><a target="_blank" href="https://www.instagram.com/dev.core.egy">Instagram</a></li>
-        </ul>
-    </footer>
-
-    <script src="../js/auth.js"></script>
-    <!--Google reCAPTCHA-->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <script>
-        // ===== Password Strength =====
-        const passwordInput = document.getElementById('password');
-        const strengthBar = document.getElementById('passwordStrength');
-        passwordInput.addEventListener('input', () => {
-            const val = passwordInput.value;
-            const bar = strengthBar.querySelector('.password-strength-bar');
-            bar.style.width = '0%';
-            strengthBar.className = 'password-strength';
-            if(val.length<6) strengthBar.classList.add('weak');
-            else if(val.length<10) strengthBar.classList.add('medium');
-            else strengthBar.classList.add('strong');
-        });
-
-        // ===== Modal Logic =====
-        const termsLink = document.getElementById('termsLink');
-        const termsModal = document.getElementById('termsModal');
-        const closeModal = document.querySelector('.modal .close');
-
-        termsLink.addEventListener('click', e => { e.preventDefault(); termsModal.style.display = 'block'; });
-        closeModal.addEventListener('click', () => { termsModal.style.display = 'none'; });
-        window.addEventListener('click', e => { if(e.target == termsModal) termsModal.style.display = 'none'; });
-
-        // ===== AJAX SignUp =====
-        const form = document.getElementById('signupForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
-
-        form.addEventListener('submit', async e => {
-            e.preventDefault();
-
-            const password = document.getElementById('password').value.trim();
-            const confirmPassword = document.getElementById('confirmPassword').value.trim();
-            if(password !== confirmPassword){
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Passwords do not match';
-                formMessage.style.display = 'block';
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.querySelector('.btn-text').style.display = 'none';
-            submitBtn.querySelector('.btn-loader').style.display = 'inline-block';
-            formMessage.style.display = 'none';
-
-            const dataToSend = {
-    userName: document.getElementById('username').value.trim(),
-    userEmail: document.getElementById('email').value.trim(),
-    userPassword: password,
-    userPhone: document.getElementById('phone').value.trim(),
-    userRole: "user"
-};
-
-            try {
-                const res = await fetch(form.action,{
-                    method:'POST',
-                    headers:{'Content-Type':'application/json'},
-                    body: JSON.stringify(dataToSend)
-                });
-                const data = await res.json();
-                if (data.status === true) {
-    formMessage.className = 'form-message success';
-    formMessage.textContent = data.message;
-    formMessage.style.display = 'block';
-    
-    setTimeout(() => {
-        window.location.href = 'login.html';
-    }, 1500);
-} else {
-    formMessage.className = 'form-message error';
-    formMessage.textContent = data.message || 'Signup failed';
-    formMessage.style.display = 'block';
-}
-
-            submitBtn.disabled = false;
-            submitBtn.querySelector('.btn-text').style.display = 'inline-block';
-            submitBtn.querySelector('.btn-loader').style.display = 'none';
-        });
-    </script>
-    <script> 
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    </script> 
-    <script>
-    form.addEventListener('submit', async e => {
-    e.preventDefault();
-    
-    const password = passwordInput.value.trim();
-    const confirmPassword = confirmPasswordInput.value.trim();
-    
-    if (password !== confirmPassword) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = 'Passwords do not match';
-        formMessage.style.display = 'block';
-        return;
-    }
-    
-    const dataToSend = {
-        userName: document.getElementById('username').value.trim(),
-        userEmail: document.getElementById('email').value.trim(),
-        userPassword: password,
-        userPhone: document.getElementById('phone').value.trim(),
-        userRole: "user"
-    };
-    
-    try {
-        const res = await fetch(form.action, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dataToSend)
-        });
-        
-        const data = await res.json();
-        
-        if (data.status === true) {
-            formMessage.className = 'form-message success';
-            formMessage.textContent = data.message;
-            formMessage.style.display = 'block';
-            
-            setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 1500);
-        } else {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = data.message || 'Signup failed';
-            formMessage.style.display = 'block';
-        }
-        
-    } catch (err) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = 'Server error';
-        formMessage.style.display = 'block';
-    }
-});
-    </script>
 </body>
+
 </html>

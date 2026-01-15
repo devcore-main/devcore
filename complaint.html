@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الشكاوى | شبكاوي</title>
+  <style>
+    :root {
+      --gold: #FFD700;
+      --lapis: #0D3B66;
+      --bg: #0A0F1A;
+      --text: #F8F9FA;
+      --surface-glass: rgba(13, 59, 102, 0.6);
+      --radius-lg: 24px;
+      --radius-md: 12px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap');
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-image: url('background.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--text);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: var(--surface-glass);
+      padding: 4rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      backdrop-filter: blur(15px);
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: var(--radius-md);
+      color: white;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--gold);
+    }
+
+    button {
+      width: 100%;
+      padding: 1.2rem;
+      background: var(--gold);
+      color: var(--lapis);
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 900;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .home-link {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      color: #40E0D0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>إرسال شكوى ملكية</h1>
+    <form>
+      <label>الاسم بالكامل</label>
+      <input type="text" placeholder="اكتب اسمك هنا">
+
+      <label>البريد الإلكتروني</label>
+      <input type="email" placeholder="example@domain.com">
+
+      <label>وصف المشكلة</label>
+      <textarea rows="5" placeholder="اشرح لنا ما يزعجك..."></textarea>
+
+      <button type="submit">إرسال عبر الرسول</button>
+    </form>
+    <a href="index.html" class="home-link">العودة للرئيسية</a>
+  </div>
+</body>
+
+</html>

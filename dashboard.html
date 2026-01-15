@@ -1,268 +1,389 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dev-core/forntemd/css/style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <title>Dashboard - DEV-CORE</title>
-    <script defer src="dashboard.js"></script>
+    <title>اهلا بك في قصر الاداره ايها الفرعون</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.05) 0%, transparent 60%),
+                url('https://www.transparenttextures.com/patterns/egyptian-papyrus.png');
+        }
+
+        /* Dashboard Sidebar Refined */
+        #side_nav {
+            width: 280px;
+            background: linear-gradient(180deg, var(--lapis), var(--bg));
+            padding: 30px 20px;
+            border-left: 2px solid var(--gold);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            right: -300px;
+            /* Changed to right for RTL */
+            bottom: 0;
+            transition: right var(--transition);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #side_nav.active {
+            right: 0;
+        }
+
+        #side_nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255, 215, 0, 0.05);
+            text-align: right;
+            transition: var(--transition);
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        #side_nav a:hover {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateX(-5px);
+        }
+
+        #toggle_btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            /* Positioned on right for RTL */
+            z-index: 1001;
+            background: var(--gold);
+            color: var(--lapis);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        #toggle_btn:hover {
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .sections {
+            padding: 80px 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            transition: margin-right var(--transition);
+        }
+
+        body.sidebar-active .sections {
+            margin-right: 280px;
+        }
+
+        @media (max-width: 768px) {
+            body.sidebar-active .sections {
+                margin-right: 0;
+            }
+
+            .sections {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <script>
-    if (!localStorage.getItem("token")) {
-        window.location.href = "login.html";
-    }
-</script>
-    <header>
-        <div class="header-content">
-            <h1>DevCore Dashboard</h1>
-            <p>Track your progress & manage your courses</p>
-        </div>
-        
-        <!-- القائمة الأصلية للديسكتوب -->
-        <nav class="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="#">Dashboard</a>
-            <a href="courses.html">Courses</a>
-            <a href="roadmap.html">Roadmap</a>
-        </nav>
-        
-        <!-- زر القائمة للموبايل فقط -->
-        <div class="menu-toggle" id="menuToggle">☰</div>
-    </header>
+<body class="dashboard-page">
+    <button id="toggle_btn">𓂀</button>
 
-    <!-- ✅ SLIDE MENU للموبايل فقط -->
-    <nav class="slide-menu" id="slideMenu">
-        <div class="close-btn" id="closeMenu">✕</div>
-        
-        <a href="index.html">Home</a>
-        <a href="#">Dashboard</a>
-        <a href="courses.html">Courses</a>
-        <a href="roadmap.html">Roadmap</a>
-    </nav>
+    <div id="side_nav">
+        <div class="hieroglyph-ornament" style="font-size: 3rem; text-align: center; margin-bottom: 2rem;">𓂀</div>
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="user_account.html">حساب المستخدم</a>
+        <a href="settings.html">الإعدادات</a>
+        <a href="logout.html" style="margin-top: auto; color: var(--carmine);">تسجيل الخروج</a>
+    </div>
 
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-    <div class="dashboard-container">
-        <!-- User Stats Section -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon">📚</div>
-                <div class="stat-info">
-                    <h3>Enrolled Courses</h3>
-                    <p class="stat-number">3</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">✅</div>
-                <div class="stat-info">
-                    <h3>Completed</h3>
-                    <p class="stat-number">1</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">📊</div>
-                <div class="stat-info">
-                    <h3>Progress</h3>
-                    <p class="stat-number">45%</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">🏆</div>
-                <div class="stat-info">
-                    <h3>Certificates</h3>
-                    <p class="stat-number">1</p>
-                </div>
+    <div class="sections">
+        <section>
+            <h2><span style="color: var(--gold);">◈</span> معلومات الشبكة</h2>
+            <div style="line-height: 2;">
+                <p>عنوان الراوتر: <span style="color: var(--turquoise);">192.168.1.1</span></p>
+                <p>العنوان الفيزيائي: <span style="color: var(--turquoise);">AA:BB:CC:DD:EE:FF</span></p>
+                <p>الأجهزة المتصلة بالحماية: <span style="font-weight: 900; color: var(--gold);">5 أجهزة</span></p>
             </div>
         </section>
 
-        <!-- Main Content Grid -->
-        <div class="dashboard-grid">
-            <!-- My Courses Section -->
-            <section class="dashboard-section">
-                <h2>My Courses</h2>
-                <div class="course-list">
-                    <div class="course-item">
-                        <div class="course-header">
-                            <h3>you must login first </h3>
-                            <span class="course-status in-progress">In Progress</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
-                        </div>
-                        <p class="progress-text">60% Complete</p>
-                        <div class="course-actions">
-                            <a href="courses.html" class="btn-primary">Continue Learning</a>
-                        </div>
-                    </div>
+        <section>
+            <h2><span style="color: var(--gold);">◈</span> باقة الاشتراك</h2>
+            <div style="line-height: 2;">
+                <p>نوع الباقة: <span style="color: var(--gold);">باقه الفراعنه </span></p>
+                <p>تاريخ الانتهاء: <span style="color: var(--text-muted);">عيب كدا يا ريس مفيش الكلام دا عندنا</span>
+                </p>
+                <!-- <p>الخصم المطبق: <span style="color: var(--turquoise);">15% خصم الفراعنة</span></p> -->
+            </div>
+            <a href="prices.html" class="cta-button" style="margin-top: 1.5rem; width: 100%;">تجديد الاشتراك</a>
+        </section>
 
-                    <div class="course-item">
-                        <div class="course-header">
-                            <h3>Backend Development</h3>
-                            <span class="course-status in-progress">In Progress</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 30%"></div>
-                        </div>
-                        <p class="progress-text">30% Complete</p>
-                        <div class="course-actions">
-                            <a href="courses.html" class="btn-primary">Continue Learning</a>
-                        </div>
-                    </div>
+        <section>
+            <h2><span style="color: var(--gold);">◈</span> سجل النشاط</h2>
+            <p style="color: var(--text-muted); font-style: italic;">تم رصد محاولة دخول مشبوهة من موقع غير معروف وحجبها
+                بنجاح بواسطة درع حورس.</p>
+        </section>
 
-                    <div class="course-item">
-                        <div class="course-header">
-                            <h3>Cybersecurity</h3>
-                            <span class="course-status completed">Completed</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill completed" style="width: 100%"></div>
-                        </div>
-                        <p class="progress-text">100% Complete</p>
-                        <div class="course-actions">
-                            <a href="#" class="btn-secondary">View Certificate</a>
-                        </div>
-                    </div>
+        <section>
+            <h2><span style="color: var(--gold);">◈</span> التهديدات الشبكية</h2>
+            <div
+                style="background: rgba(150, 0, 24, 0.1); padding: 1rem; border-radius: 8px; border: 1px solid var(--carmine);">
+                <p style="color: var(--carmine); font-weight: bold;">تحذير!</p>
+                <p>نوع الهجوم: <span style="color: var(--text);">فحص المنافذ (Port Scan)</span></p>
+                <p>الحالة: <span style="color: var(--turquoise);">تم الحجب</span></p>
+            </div>
+        </section>
+
+        <section>
+            <h2><span style="color: var(--gold);">◈</span> إحصائيات الاستخدام</h2>
+            <p>البيانات المستخدمة: <span style="color: var(--gold);">3.2 GB</span></p>
+            <div
+                style="height: 10px; background: rgba(255,215,0,0.1); border-radius: 5px; margin: 15px 0; overflow: hidden;">
+                <div style="width: 65%; height: 100%; background: var(--gold);"></div>
+            </div>
+            <p>ساعات الذروة: <span style="color: var(--text-muted);">8 مساءً - 11 مساءً</span></p>
+        </section>
+
+        <section>
+            <h2><span style="color: var(--gold);">◈</span> سرعة الاتصال</h2>
+            <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 1rem;">
+                <div>
+                    <p style="font-size: 0.9rem;">تحميل</p>
+                    <p style="font-size: 1.8rem; font-weight: 900; color: var(--turquoise);">45</p>
+                    <p style="font-size: 0.8rem;">Mbps</p>
                 </div>
-            </section>
-
-            <!-- Recent Activity Section -->
-            <section class="dashboard-section">
-                <h2>Recent Activity</h2>
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <div class="activity-icon">📖</div>
-                        <div class="activity-content">
-                            <p><strong>Completed:</strong> JavaScript Basics Module</p>
-                            <span class="activity-time">2 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">🎯</div>
-                        <div class="activity-content">
-                            <p><strong>Started:</strong> React Fundamentals</p>
-                            <span class="activity-time">1 day ago</span>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">✅</div>
-                        <div class="activity-content">
-                            <p><strong>Earned:</strong> Cybersecurity Certificate</p>
-                            <span class="activity-time">3 days ago</span>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">📝</div>
-                        <div class="activity-content">
-                            <p><strong>Submitted:</strong> Backend Project Assignment</p>
-                            <span class="activity-time">5 days ago</span>
-                        </div>
-                    </div>
+                <div style="width: 1px; background: rgba(255,215,0,0.2);"></div>
+                <div>
+                    <p style="font-size: 0.9rem;">رفع</p>
+                    <p style="font-size: 1.8rem; font-weight: 900; color: var(--sand);">12</p>
+                    <p style="font-size: 0.8rem;">Mbps</p>
                 </div>
-            </section>
-
-            <!-- Quick Actions Section -->
-            <section class="dashboard-section">
-                <h2>Quick Actions</h2>
-                <div class="quick-actions">
-                    <a href="courses.html" class="action-card">
-                        <div class="action-icon">🔍</div>
-                        <h3>Browse Courses</h3>
-                        <p>Explore new courses</p>
-                    </a>
-                    <a href="roadmap.html" class="action-card">
-                        <div class="action-icon">🗺️</div>
-                        <h3>View Roadmap</h3>
-                        <p>Plan your learning path</p>
-                    </a>
-                    <a href="certificate.html" class="action-card">
-                        <div class="action-icon">📜</div>
-                        <h3>My Certificates</h3>
-                        <p>View achievements</p>
-                    </a>
-                    <a href="setting.html" class="action-card">
-                        <div class="action-icon">⚙️</div>
-                        <h3>Settings</h3>
-                        <p>Manage account</p>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Upcoming Deadlines Section -->
-            <section class="dashboard-section">
-                <h2>Upcoming Deadlines</h2>
-                <div class="deadline-list">
-                    <div class="deadline-item">
-                        <div class="deadline-date">
-                            <span class="day">15</span>
-                            <span class="month">Dec</span>
-                        </div>
-                        <div class="deadline-content">
-                            <h4>Front-End Project Submission</h4>
-                            <p>5 days remaining</p>
-                        </div>
-                    </div>
-                    <div class="deadline-item">
-                        <div class="deadline-date">
-                            <span class="day">20</span>
-                            <span class="month">Dec</span>
-                        </div>
-                        <div class="deadline-content">
-                            <h4>Backend Quiz</h4>
-                            <p>10 days remaining</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </div>
 
-    <footer id="footer">
-        <ul>
-            <li><a target="_blank" href="mailto:devcore.communicate@gmail.com">Email</a></li>
-            <li><a target="_blank" href="tel:+966359797419">Telephone</a></li>
-            <li><a target="_blank" href="https://www.instagram.com/dev.core.egy">Instagram</a></li>
-        </ul>
-    </footer>
-
-    <script src="/dev-core/forntemd/js/auth.js"></script>
-    <script src="/dev-core/forntemd/js/dashboard.js"></script>
-    
-    <!--Menu Toggle-->
     <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const slideMenu = document.getElementById("slideMenu");
-        const closeMenu = document.getElementById("closeMenu");
-        const menuOverlay = document.getElementById("menuOverlay");
-        
-        function openMenu() {
-            slideMenu.classList.add("active");
-            menuOverlay.classList.add("active");
-            document.body.style.overflow = "hidden";
-        }
-        
-        function closeMenuFunc() {
-            slideMenu.classList.remove("active");
-            menuOverlay.classList.remove("active");
-            document.body.style.overflow = "auto";
-        }
-        
-        menuToggle.onclick = openMenu;
-        closeMenu.onclick = closeMenuFunc;
-        menuOverlay.onclick = closeMenuFunc;
-        
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMenuFunc();
+        const toggleBtn = document.getElementById('toggle_btn');
+        const sideNav = document.getElementById('side_nav');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', () => {
+            sideNav.classList.toggle('active');
+            body.classList.toggle('sidebar-active');
+            // Change icon
+            toggleBtn.textContent = sideNav.classList.contains('active') ? '✕' : '𓂀';
+        });
+
+        // Close sidebar on click outside
+        document.addEventListener('click', (e) => {
+            if (!sideNav.contains(e.target) && e.target !== toggleBtn && sideNav.classList.contains('active')) {
+                sideNav.classList.remove('active');
+                body.classList.remove('sidebar-active');
+                toggleBtn.textContent = '𓂀';
             }
         });
     </script>
-    <script> 
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    </script> 
 </body>
+
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Security Dashboard</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050b12;
+            --text: #e6e6e6;
+            --gold: #d4af37;
+            --turquoise: #40e0d0;
+            --carmine: #b11226;
+            --transition: 0.35s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background:
+                linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .9)),
+                url("./background.png") center / cover no-repeat fixed;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(6px);
+        }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(180deg,
+                    rgba(15, 30, 45, 0.85),
+                    rgba(5, 15, 25, 0.9));
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            padding: 1.8rem;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.45),
+                inset 0 0 0 1px rgba(255, 215, 0, 0.05);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .card::before {
+            content: "𓂀";
+            position: absolute;
+            top: 14px;
+            left: 18px;
+            font-size: 3rem;
+            opacity: 0.05;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        .value {
+            color: var(--turquoise);
+            font-weight: 700;
+        }
+
+        .value.gold {
+            color: var(--gold);
+        }
+
+        /* Critical Card */
+        .critical {
+            border-color: var(--carmine);
+        }
+
+        .critical h2 {
+            color: var(--carmine);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Status -->
+        <div class="status-bar">
+            <div>🛡️ الحماية: <strong style="color: var(--gold)">نشطة</strong></div>
+            <div>👁️ المراقبة: حية</div>
+            <div>⚡ آخر فحص: منذ 12 ثانية</div>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid">
+
+            <section class="card">
+                <h2>◈ معلومات الشبكة</h2>
+                <p>عنوان الراوتر: <span class="value">192.168.1.1</span></p>
+                <p>MAC Address: <span class="value">AA:BB:CC:DD:EE:FF</span></p>
+                <p>الأجهزة المحمية: <span class="value gold">5</span></p>
+            </section>
+
+            <section class="card">
+                <h2>◈ حالة الجدار الناري</h2>
+                <p>Firewall: <span class="value">Enabled</span></p>
+                <p>IPS Engine: <span class="value">Running</span></p>
+                <p>Rules Loaded: <span class="value">128</span></p>
+            </section>
+
+            <section class="card critical">
+                <h2>▲ تهديد نشط</h2>
+                <p>النوع: <span class="value">Port Scan</span></p>
+                <p>المصدر: <span class="value">Unknown</span></p>
+                <p>الحالة:
+                    <span class="value gold">تم الإحباط</span>
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>◈ سجل الأحداث</h2>
+                <p>• SSH Login Blocked</p>
+                <p>• Suspicious Packet Dropped</p>
+                <p>• Scan Detected</p>
+            </section>
+
+        </div>
+
+        <footer>
+            © 2026 | Advanced Network Defense System
+        </footer>
+
+    </div>
+
+</body>
+
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>شبكاوي | أمنك الرقمي بروح مصرية</title>
+</head>
+
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div id="splash-content">
+            <div class="hieroglyph-ornament">𓂀</div>
+            <h1 style="color: var(--gol); margin-bottom: 2rem;">مرحباً بك في شبكاوي</h1>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.2rem;">اضغط للدخول إلى عالم الحماية الرقمية</p>
+            <button id="enter-btn">دخول</button>
+        </div>
+    </div>
+
+    <!-- Intro Audio -->
+    <audio id="intro-audio" src="intro.mp3"></audio>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <header>
+            <div class="hieroglyph-ornament" style="font-size: 4rem; margin-bottom: 0;">𓂀</div>
+            <h1 style="font-family: 'Cinzel', serif; color: var(--gold); text-align: center;">شبكاوي | أمنك في الصون</h1>
+            <nav>
+                <ul>
+                    <li><a href="login.html">تسجيل الدخول</a></li>
+                    <li><a href="signup.html">إنشاء حساب</a></li>
+                    <li><a href="dashboard.html">البيانات</a></li>
+                    <li><a href="user_account.html">حسابي</a></li>
+                    <li><a href="dashboard.html">لوحة التحكم</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="page-body">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <a class="cta-button" download href="shabakawy.exe">تحميل تطبيق شبكاوي ⇊</a>
+            </div>
+
+            <section>
+                <h2><span style="color: var(--gold);">◈</span> استخدام البيانات</h2>
+                <p>الأجهزة المتصلة حالياً بالشبكة:</p>
+                <ul style="margin-top: 1rem; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem; color: var(--turquoise);">◈ جهاز 1 (متصل)</li>
+                    <li style="margin-bottom: 0.5rem; color: var(--turquoise);">◈ جهاز 2 (متصل)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2><span style="color: var(--gold);">◈</span> خدماتنا الأمنية</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                    <a href="prices.html" class="cta-button">الباقة المجانية</a>
+                    <a href="prices.html" class="cta-button">الباقة المتقدمة</a>
+                    <a href="prices.html" class="cta-button">باقة المحترفين</a>
+                    <a href="prices.html" class="cta-button">باقة مخصصة</a>
+                </div>
+            </section>
+
+            <section>
+                <h2><span style="color: var(--gold);">◈</span> ثقف نفسك</h2>
+                <p>تعلم المزيد عن عالم الشبكات والأمن الرقمي:</p>
+                <ul style="margin-top: 1rem; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="video.mp4" style="color: var(--turquoise); text-decoration: none;">◈ من نحن؟ (فيديو تعريف)</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="presentation.mp4" style="color: var(--turquoise); text-decoration: none;">◈ الوعي الرقمي وأمن الشبكات</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <fieldset>
+                <legend>تواصل معنا</legend>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <a href="https://instgram.com" target="_blank" class="cta-button" style="border-color: #E1306C; color: #E1306C;">إنستغرام</a>
+                    <a href="https://facebook.com" target="_blank" class="cta-button" style="border-color: #1877F2; color: #1877F2;">فيسبوك</a>
+                    <a href="https://whatsapp.com" target="_blank" class="cta-button" style="border-color: #25D366; color: #25D366;">واتساب</a>
+                </div>
+                
+                <form method="post" action="complaint.js" style="max-width: 500px; margin: 0 auto; text-align: right;">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem;">ايميلك يا باشا:</label>
+                    <input type="email" id="email" name="email_complaint" placeholder="example@example.com" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--gold); background: rgba(0,0,0,0.3); color: white;">
+                    
+                    <label for="content" style="display: block; margin-bottom: 0.5rem;">شكوتك يا باشا:</label>
+                    <textarea id="content" name="content_of_complaint" rows="4" placeholder="اكتب مشكلتك هنا..." style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--gold); background: rgba(0,0,0,0.3); color: white;"></textarea>
+                    
+                    <input type="submit" value="إرسال الشكوى" class="cta-button" style="width: 100%; background: var(--gold); border: none; color: var(--lapis); cursor: pointer;">
+                </form>
+            </fieldset>
+            <p style="margin-top: 2rem; color: var(--text-muted); text-align: center;">&copy; 2025 شبكاوي - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('enter-btn').addEventListener('click', function() {
+            const audio = document.getElementById('intro-audio');
+            const splash = document.getElementById('splash-screen');
+            const main = document.getElementById('main-content');
+
+            // Play audio
+            audio.play().catch(error => {
+                console.log("Audio play failed:", error);
+            });
+
+            // Transition
+            splash.style.opacity = '0';
+            setTimeout(() => {
+                splash.style.display = 'none';
+                main.style.display = 'block';
+                setTimeout(() => {
+                    main.classList.add('visible');
+                }, 50);
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
